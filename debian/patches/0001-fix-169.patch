@@ -1,0 +1,22 @@
+From: EHfive <my@eh5.me>
+Date: Mon, 27 Aug 2018 15:21:35 +0800
+Subject: fix #169
+Applied-Upstream: commit:fd5c33da376d482aacf56a9978e51a96ca4565b4
+
+---
+ src/main.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/main.cpp b/src/main.cpp
+index 1bc1fbb..75926e9 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -26,6 +26,8 @@ void setupApplication(QApplication &a)
+     signal(SIGINT, onSignalRecv);
+     signal(SIGTERM, onSignalRecv);
+ 
++    QApplication::setFallbackSessionManagementEnabled(false);
++
+     a.setApplicationName(QString("shadowsocks-qt5"));
+     a.setApplicationDisplayName(QString("Shadowsocks-Qt5"));
+     a.setApplicationVersion(APP_VERSION);

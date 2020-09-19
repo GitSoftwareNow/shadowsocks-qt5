@@ -1,0 +1,21 @@
+From: Boyuan Yang <byang@debian.org>
+Date: Sun, 9 Sep 2018 12:06:39 -0400
+Subject: Patch cmakelists.txt to search for QtShadowsocks system header dir
+
+---
+ CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e0e9afd..3d58ea5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -40,4 +40,8 @@ if(WIN32 OR APPLE)
+     add_definitions(-DFD_SETSIZE=1024)
+ endif()
+ 
++if (UNIX)
++    include_directories(AFTER SYSTEM /usr/include/QtShadowsocks/)
++endif()
++
+ add_subdirectory(src)
