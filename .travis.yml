@@ -1,4 +1,8 @@
 sudo: required
+arch:
+  - arm64 
+  - x86
+  - mips64el
 dist: trusty
 language: cpp
 cache: apt
@@ -25,7 +29,7 @@ branches:
 before_install:
   - eval "${MATRIX_EVAL}"
   # Use the latest libQtShadowsocks code
-  - git clone https://github.com/shadowsocks/libQtShadowsocks.git
+  - git clone https://github.com/GitSoftwareNow/shadowsocks-qt5.git
   - mkdir libQtShadowsocks/build
   - cd libQtShadowsocks/build
   - cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DQt5Core_DIR="/opt/qt56/lib/cmake/Qt5Core" -DQt5Network_DIR="/opt/qt56/lib/cmake/Qt5Network" -DQt5Test_DIR="/opt/qt56/lib/cmake/Qt5Test"
